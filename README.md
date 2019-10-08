@@ -1,4 +1,4 @@
-# CS561_Search_Algorithms
+# Search_Algorithms
 Input file that describes the terrain map, landing site,
 target sites, and characteristics of the robot. For each target site, you should find the optimal
 (shortest) safe path from the landing site to that target. A path is composed of a sequence of
