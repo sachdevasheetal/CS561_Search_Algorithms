@@ -19,8 +19,6 @@ void printpath(vector<pair<int,int> > res)
 
 double calculateHeuristic(int row, int col, pair<int,int> dest) 
 { 
-   /* return ((double)sqrt ((row-dest.first)*(row-dest.first) 
-                          + (col-dest.second)*(col-dest.second))*10);     */
 	return max(abs(row-dest.first),abs(col-dest.second))*10;                
     
 }
@@ -43,7 +41,7 @@ void Astar_search_parent_child(pair<int,int> src,int diff,vector<vector<int> > e
 	parent_child[src]=src;
 	while(q.empty()==false)
 	{
-	//	cout<<"cost";
+		
 		pair<int,int> last=q.top().second;
 		initial_cost=cell[last].g;
 		q.pop();
@@ -157,7 +155,6 @@ void UCS_Search_parent_child(pair<int,int> src,int diff,vector<vector<int> > ele
 	int initial_cost=0;
 	parent_child[src]=src;
 	set<pair<int,int> > closed;
-//	closed.insert(src);
 	while(q.empty()==false)
 	{
 		if(q.empty()==true)
@@ -170,17 +167,10 @@ void UCS_Search_parent_child(pair<int,int> src,int diff,vector<vector<int> > ele
 		
 		closed.insert(last);
 		initial_cost=visited[last];
-	//	cout<<last.first<<" "<<last.second<<" "<<initial_cost<<endl;
-	//	cout<<last.first<<" "<<last.second<<" ";
 		if(target.first==last.first&&target.second==last.second)
 		{
-		
-		//if(visited[last]>=initial_cost)
-		
 			visited[last]=initial_cost;
-		
-	//	cout<<initial_cost<<endl;
-		return;
+			return;
 		}
 		for(int i=max(0,last.first-1);i<=min(last.first+1,row-1);i++)
 		{
@@ -241,7 +231,6 @@ void print_parent_child(map<pair<int,int>, pair<int,int> > parent_child,pair<int
 		res.push_back(make_pair(src.first,src.second));
 		reverse(res.begin(),res.end());
 		int len=res.size();
-		//cout<<endl<<"Number of Nodes "<<res.size()<<endl;
 		for(int i=0;i<len;i++)
 		{
 			cout<<res[i].second<<","<<res[i].first<<" ";
@@ -254,12 +243,10 @@ void print_parent_child(map<pair<int,int>, pair<int,int> > parent_child,pair<int
 int main()
 {
 	ios_base::sync_with_stdio(false);
-//	clock_t start,end;
-//	start=clock();
 	string search_type;
 	int col,row;
 	int start_x,start_y,max_diff,target_num;
-    FILE *fp1=freopen("input.txt", "r", stdin);
+    	FILE *fp1=freopen("input.txt", "r", stdin);
 	cin>>search_type;
 	cin>>col>>row;
 	cin>>start_y>>start_x;
